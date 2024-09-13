@@ -35,7 +35,22 @@ def size_row(matrix):
 
 
 def matrix_divided(matrix, div):
+    """
+    Divides all elements of a matrix by a number and rounds the result to
+    two decimals
 
+    Parameters:
+    matrix (lists of lists of int/float): The matrix to be divided
+    div (int/float): The divisor
+
+    Returns:
+    Lists of lists of float: The resulting matrx after division
+
+    Raises:
+    TypeError: If div is not a number
+    If matrix is not a list of lists of int/float
+    ZeroDivisionError: If div is zero
+    """
     validate_matrix(matrix)
     size_row(matrix)
 
