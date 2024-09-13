@@ -46,3 +46,12 @@ In case this condition is not met, a TypeError is raised:
     Traceback (most recent call last):
         ...
     TypeError: b must be an integer
+
+    >>> add_integer(2, float("inf"))
+    Traceback (most recent call last):
+    OverflowError: cannot convert float infinity to integer
+
+With NaN numbers:
+    >>> add_integer(float('NaN'))
+    Traceback (most recent call last):
+    ValueError: cannot convert float NaN to integer
