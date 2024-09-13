@@ -39,7 +39,7 @@ Floats and integers can be combined:
     ... ]
        
     >>> matrix_divided(matrix, 2)
-    [[1.1, 2.0, -3], [4.0, 5.1, 6.1]]
+    [[1.1, 2.0, -3.0], [4.0, 5.1, 6.1]]
 
 
 Invalid Matrices

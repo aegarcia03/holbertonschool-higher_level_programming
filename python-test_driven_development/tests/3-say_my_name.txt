@@ -1,0 +1,36 @@
+==========================
+3. Say my name
+==========================
+
+Import module:
+===============
+    >>> say_my_name = __import__('3-say_my_name').say_my_name
+
+Usage:
+=======
+``say_my_name(first_name, last_name="")`` prints the formatted string.
+
+# Test valid inputs
+    >>> say_my_name("John", "Smith")
+    My name is John Smith
+
+The argument 'last_name' can be optional.
+Defaults to an empty string:
+    >>> say_my_name("Angela")
+    My name is Angela
+
+Non-String
+===========
+
+The function expects that both arguments are strings.
+In case this condition is not met, a TypeError is raised:
+
+    >>> say_my_name("Angela", 15)
+    Traceback (most recent call last):
+        ...
+    TypeError: last_name must be a string
+
+    >>> say_my_name(15, "Angela")
+    Traceback (most recent call last):
+        ...
+    TypeError: first_name must be a string
