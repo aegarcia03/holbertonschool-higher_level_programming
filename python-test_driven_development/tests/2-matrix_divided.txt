@@ -1,5 +1,5 @@
 ==========================
-1. Divide a matrix
+2. Divide a matrix
 ==========================
 
 Import module:
@@ -54,6 +54,28 @@ In case this condition is not met, a TypeError is raised:
     Traceback (most recent call last):
         ...
     TypeError: matrix must be a matrix (list of lists) of integers/floats
+
+    >>> matrix = None
+
+    >>> matrix_divided(matrix, 2)
+    Traceback (most recent call last):
+        ...
+    TypeError: matrix must be a matrix (list of lists) of integers/floats
+
+Note that a empty list of lists will succeed, however, 
+an empty list will raise a TypeError:
+
+    >>> matrix = []
+
+    >>> matrix_divided(matrix, 2)
+    Traceback (most recent call last):
+        ...
+    TypeError: matrix must be a matrix (list of lists) of integers/floats
+
+    >>> matrix = [[]]
+
+    >>> matrix_divided(matrix, 2)
+    [[]]
 
     >>> matrix = [
     ...         [2.2, "hello", -6], 
