@@ -17,10 +17,9 @@ Usage:
     ####
     ####
 
-    >>> print_square(0)
-    ...
-    
+If ``size`` is zero, the function prints nothing.
 
+    >>> print_square(0)
 
 Non-Integer
 ===========
@@ -42,6 +41,13 @@ In case this condition is not met, a TypeError is raised:
     Traceback (most recent call last):
         ...
     TypeError: size must be an integer
+
+At leat one argument must be provided:
+
+    >>> print_square()
+    Traceback (most recent call last):
+        ...
+    TypeError: print_square() missing 1 required positional argument: 'size'
 
 Negative Integer
 ================
