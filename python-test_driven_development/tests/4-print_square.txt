@@ -17,6 +17,10 @@ Usage:
     ####
     ####
 
+    >>> print_square(0)
+    ...
+    
+
 
 Non-Integer
 ===========
