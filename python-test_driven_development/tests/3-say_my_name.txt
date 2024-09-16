@@ -14,10 +14,12 @@ Usage:
     >>> say_my_name("John", "Smith")
     My name is John Smith
 
-The argument 'last_name' can be optional.
-Defaults to an empty string:
-    >>> say_my_name("Angela")
-    My name is Angela
+
+The argument ```last_name``` can be optional. If not last name is provided
+it will default to an empty string:
+
+    >>> say_my_name("Bob")
+    My name is Bob
 
 Non-String
 ===========
