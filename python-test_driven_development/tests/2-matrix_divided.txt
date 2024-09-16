@@ -57,7 +57,7 @@ In case this condition is not met, a TypeError is raised:
 
     >>> matrix = None
 
-    >>> matrix_divided(matrix, 2)
+    >>> matrix_divided(None, 2)
     Traceback (most recent call last):
         ...
     TypeError: matrix must be a matrix (list of lists) of integers/floats
@@ -65,17 +65,17 @@ In case this condition is not met, a TypeError is raised:
 Note that a empty list of lists will succeed, however, 
 an empty list will raise a TypeError:
 
-    >>> matrix = []
+    >>> matrix = [[]]
+
+    >>> matrix_divided(matrix, 2)
+    [[]]
+
+    >>> matrix = None
 
     >>> matrix_divided(matrix, 2)
     Traceback (most recent call last):
         ...
     TypeError: matrix must be a matrix (list of lists) of integers/floats
-
-    >>> matrix = [[]]
-
-    >>> matrix_divided(matrix, 2)
-    [[]]
 
     >>> matrix = [
     ...         [2.2, "hello", -6], 
