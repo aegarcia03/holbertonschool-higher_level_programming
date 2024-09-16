@@ -21,14 +21,15 @@ def text_indentation(text):
     while i < length:
         if text[i] == '.' or text[i] == ':' or text[i] == '?':
             container.append(text[i])
-            container.append('\n\n')
+            if i != length - 1:
+                container.append('\n\n')
 
             i += 1
             while i < length and text[i] == ' ':
                 i += 1
             continue
         else:
-            container.append(text[i].rstrip())
+            container.append(text[i])
         i += 1
-    result = ''.join(container).rstrip()
+    result = ''.join(container)
     print(result, end="")
