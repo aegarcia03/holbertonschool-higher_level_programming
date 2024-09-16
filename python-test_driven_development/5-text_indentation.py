@@ -7,7 +7,6 @@ def text_indentation(text):
 
     Parameters:
     text: a string.
-
     Raises:
     TypeError: if text is not a string.
     """
@@ -29,7 +28,7 @@ def text_indentation(text):
                 i += 1
             continue
         else:
-            container.append(text[i])
+            container.append(text[i].rstrip())
         i += 1
     result = ''.join(container).rstrip()
-    print(result)
+    print(result, end="")
