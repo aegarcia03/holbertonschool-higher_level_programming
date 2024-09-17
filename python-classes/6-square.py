@@ -52,8 +52,9 @@ class Square:
         """Prints a square pattern with the character #"""
         if self.__size == 0:
             print()
+            return
 
-        for i in range(0, self.position[0]):
-            for j in range(0, self.__size):
-                print("#", end='')
+        for i in range(0, self.position[1]):
             print()
+        for i in range(self.__size):
+            print("_" * self.__position[0] + "#" * self.__size)
