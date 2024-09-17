@@ -12,4 +12,4 @@ def roman_to_int(roman_string):
             result += roman_num[i]
         last = i
 
-    return str(result)
+    return result
