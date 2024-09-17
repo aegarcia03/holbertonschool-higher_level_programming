@@ -75,7 +75,7 @@ class Rectangle:
         if self.__height == 0 or self.__width == 0:
             return ""
 
-        row =str(self.print_symbol) * self.__width
+        row = str(self.print_symbol) * self.__width
         rectangle = (row + '\n') * self.height
 
         return rectangle.strip()
