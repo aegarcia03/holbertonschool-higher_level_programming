@@ -70,3 +70,6 @@ The method will not sort an empty list.
     []
 
 
+
+
+check print_sorted() returns a new list
