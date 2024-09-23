@@ -1,0 +1,7 @@
+===========================
+1. My list
+==========================
+
+Import module:
+===============
+    >>> print_sorted = __import__('1-my_list').my_list
