@@ -69,7 +69,10 @@ In case this condition is not met, a TypeError is raised:
     TypeError: integer_validator() missing 1 required positional argument: 'value'
 
     >>> bg.integer_validator("age", True)
-    
+    Traceback (most recent call last):
+        ...
+    TypeError: age must be an integer
+
 
 The function expects that value is greater than zero.
 In case this condition is not met, a ValueError is raised:
