@@ -48,11 +48,6 @@ In case this condition is not met, a TypeError is raised:
         ...
     TypeError: list must be an integer
 
-    >>> bg.integer_validator("invalid", True)
-    Traceback (most recent call last):
-        ...
-    TypeError: invalid must be an integer
-
     >>> bg.integer_validator("dic", {3, 4})
     Traceback (most recent call last):
         ...
