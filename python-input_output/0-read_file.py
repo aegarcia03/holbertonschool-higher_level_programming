@@ -7,6 +7,6 @@ def read_file(filename=""):
     Args:
         filename: text
     """
-    with open(filename, 'r') as file:
+    with open(filename, 'r', encoding="utf-8") as file:
         for lines in file:
             print(lines.strip())
