@@ -25,6 +25,8 @@ class Circle(Shape):
     """Subclass of Shape, represents a Circle"""
 
     def __init__(self, radius):
+        if radius < 0:
+            raise ValueError("Radius cannot be negative")
         self.radius = radius
 
     def area(self):
