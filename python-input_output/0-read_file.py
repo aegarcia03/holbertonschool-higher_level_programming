@@ -8,5 +8,5 @@ def read_file(filename=""):
         filename: text
     """
     with open(filename, 'r', encoding="utf-8") as file:
-        for lines in file:
-            print(lines.strip())
+        for line in file:
+            print(line, end="")
