@@ -86,7 +86,7 @@ class Rectangle:
     def __del__(self):
         type(self).number_of_instances -= 1
         print("Bye rectangle...")
-
+# does not need an instance (anytime i dont need an instance i create static) if i realize taht i need attributes ill make it not static 
     @staticmethod
     def bigger_or_equal(rect_1, rect_2):
 

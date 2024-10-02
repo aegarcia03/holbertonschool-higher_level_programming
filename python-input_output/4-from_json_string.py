@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""Defines a function that returns an object"""
+"""Defines a JSON-to-object function"""
 import json
 
 
