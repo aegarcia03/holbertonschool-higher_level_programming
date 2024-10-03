@@ -22,7 +22,7 @@ class CustomObject:
         try:
             with open(filename, mode="wb") as file:
                 pickle_str = pickle.dump(self, file)
-        except IOERROR:
+        except:
             return None
 
     @classmethod
@@ -31,5 +31,5 @@ class CustomObject:
         try:
             with open(filename, mode="rb") as file:
                 return pickle.load(file)
-        except FileNotFoundError:
+        except:
             return None
