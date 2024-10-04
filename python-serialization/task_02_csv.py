@@ -13,10 +13,12 @@ def convert_csv_to_json(csv_filename):
             for row in csv_reader:
                 key = row['name']
                 data[key] = row
+    except FileNotFoundError:
+        return False
 
+    try:
         with open(json_file, 'w', encoding="UTF8") as jsonf:
             json.dump(data, jsonf, indent=4)
-
         return True
-    except FileNotFoundError:
+    except:
         return False
