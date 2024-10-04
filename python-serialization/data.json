@@ -1,22 +1,22 @@
-{
-    "John": {
+[
+    {
         "name": "John",
         "age": "28",
         "city": "New York"
     },
-    "Alice": {
+    {
         "name": "Alice",
         "age": "24",
         "city": "Los Angeles"
     },
-    "Bob": {
+    {
         "name": "Bob",
         "age": "22",
         "city": "Chicago"
     },
-    "Eve": {
+    {
         "name": "Eve",
         "age": "30",
         "city": "San Francisco"
     }
-}
+]
