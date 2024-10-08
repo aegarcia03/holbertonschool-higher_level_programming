@@ -12,16 +12,21 @@ class SimpleHTTPRequestHandler(BaseHTTPRequestHandler):
             self.send_header("Content-Type", "application/json")
             self.end_headers()
             self.wfile.write(json.dumps(data).encode("utf-8"))
-        elif self.path == '/status' or self.path == '/':
+        elif self.path == '/status':
             self.send_response(200)
             self.send_header("Content-type", "text/plain")
             self.end_headers()
-            self.wfile.write(b"Hello, this is a simple API!")
-        else:
+            self.wfile.write(b"OK")
+        elif self.path == '/undefined':
             self.send_response(400)
             self.send_header("Content-type", "text/plain")
             self.end_headers()
             self.wfile.write(b"Endpoint not found")
+        else:
+            self.send_response(200)
+            self.send_header("Content-type", "text/plain")
+            self.end_headers()
+            self.wfile.write(b"Hello, this is a simple API!")
 
 
 httpd = HTTPServer(('', 8000), SimpleHTTPRequestHandler)
