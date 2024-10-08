@@ -18,10 +18,10 @@ class SimpleHTTPRequestHandler(BaseHTTPRequestHandler):
             self.end_headers()
             self.wfile.write(b"OK")
         elif self.path == '/undefined':
-            self.send_response(400)
+            self.send_response(404)
             self.send_header("Content-type", "text/plain")
             self.end_headers()
-            self.wfile.write(b"Endpoint not found")
+            self.wfile.write(b"404 Not Found")
         else:
             self.send_response(200)
             self.send_header("Content-type", "text/plain")
