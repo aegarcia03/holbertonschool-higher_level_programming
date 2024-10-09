@@ -21,7 +21,7 @@ class SimpleHTTPRequestHandler(BaseHTTPRequestHandler):
             self.send_response(404)
             self.send_header("Content-type", "text/plain")
             self.end_headers()
-            self.wfile.write(b"Endpoint not defined")
+            self.wfile.write(b"Endpoint not found")
         else:
             self.send_response(200)
             self.send_header("Content-type", "text/plain")
