@@ -3,10 +3,11 @@ from flask import Flask, jsonify, request, abort
 
 app = Flask(__name__)
 
-users = {
-    "jane": {"username": "jane", "name": "Jane", "age": 28, "city": "Los Angeles"},
-    "john": {"username": "john", "name": "John", "age": 30, "city": "New York"}
-    }
+users = {}
+#users = {
+ #   "jane": {"username": "jane", "name": "Jane", "age": 28, "city": "Los Angeles"},
+  #  "john": {"username": "john", "name": "John", "age": 30, "city": "New York"}
+   # }
 
 @app.route("/")
 def home():
@@ -16,6 +17,8 @@ def home():
 @app.route("/data")
 def get_users():
     """Returns a list of all the usernames stored in the API"""
+    if not users:
+        return jsonify([]), 200
     return jsonify(list(users.keys()))
 
 @app.route("/status")
