@@ -35,14 +35,27 @@ def find_user(username):
 def add_user():
     """Adds the user to the users dictionary"""
     info_user = request.get_json()
+    if info_user is None:
+        abort(400, "Not a JSON")
 
     if "username" not in info_user:
         return jsonify({"error": "Username is required"}), 400
 
     username = info_user['username']
-    users[username] = info_user
+    users[username] = {
+        "name": info_user.get("name"),
+        "age": info_user.get("age"),
+        "city": info_user.get("city")
+    }
 
-    return jsonify({"message": "User added", "user" : info_user}), 201
+    output = {
+        "username": username,
+        "name": users[username]["name"],
+        "age": users[username]["age"],
+        "city": users[username]["city"]
+    }
+
+    return jsonify({"message": "User added", "user" : output}), 201
 
 if __name__ == "__main__":
     app.run()
