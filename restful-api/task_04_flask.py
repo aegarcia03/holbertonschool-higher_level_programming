@@ -35,10 +35,10 @@ def find_user(username):
 @app.route("/add_user", methods=['POST'])
 def add_user():
     """Adds the user to the users dictionary"""
-    info_user = request.get_json()
-    if info_user is None:
+    if request.get_json() is None:
         abort(400, "Not a JSON")
 
+    info_user = request.get_json()
     if "username" not in info_user:
         return jsonify({"error": "Username is required"}), 400
 
@@ -55,7 +55,7 @@ def add_user():
         "age": users[username]["age"],
         "city": users[username]["city"]
     }
-
+ 
     return jsonify({"message": "User added", "user" : output}), 201
 
 if __name__ == "__main__":
