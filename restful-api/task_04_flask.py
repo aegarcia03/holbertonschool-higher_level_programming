@@ -26,10 +26,12 @@ def status():
 def find_user(username):
     """Dynamic Route
     Returns details about specific username"""
-    try: 
-        return users[username]
-    except KeyError:
+    if username not in users:
         return jsonify({"error": "User not found"}), 404
+
+    user_name = users[username]
+    user_name["username"] = username
+    return jsonify(user_name)
 
 @app.route("/add_user", methods=['POST'])
 def add_user():
