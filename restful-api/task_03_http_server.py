@@ -28,8 +28,8 @@ class SimpleHTTPRequestHandler(BaseHTTPRequestHandler):
             self.end_headers()
             self.wfile.write(b"Hello, this is a simple API!")
 
+if __name__ == "__main__":
 
-httpd = HTTPServer(('', 8000), SimpleHTTPRequestHandler)
-
-print("Serving on port 8000...")
-httpd.serve_forever()
+    httpd = HTTPServer(('', 8000), SimpleHTTPRequestHandler)
+    print("Serving on port 8000...")
+    httpd.serve_forever()
