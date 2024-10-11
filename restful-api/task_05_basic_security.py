@@ -33,8 +33,8 @@ def basic_auth():
 def login():
     """login"""
     # -- Usage --
-    # curl -X POST localhost:5000/login -H "Content-Type: application/
-    # json" -d '{"username": "user1", "password": "password"}'
+    # curl -X POST localhost:5000/login -H "Content-Type: application/json" -d '{"username": "user1", "password": "password"}'
+    #curl -X POST localhost:5000/login -H "Content-Type: application/json" -d '{"username": "admin1", "password": "password"}'
 
     if request.get_json() is None:
         abort(400, "Not a JSON")
@@ -57,6 +57,7 @@ def login():
 @app.route('/jwt-protected')
 @jwt_required()
 def jwt_protected():
+    # curl -X GET http://localhost:5000/jwt-protected -H "Authorization: Bearer JWT_TOKEN"
     """Protected Route"""
     return "JWT Auth: Access Granted"
 
@@ -65,10 +66,10 @@ def jwt_protected():
 def admin_only():
     """Only specific user have access"""
     actual_user = get_jwt_identity()
-    
+
     if actual_user not in users or users[actual_user]["role"] != "admin":
         return jsonify({"error: Admin access required"}), 403
-    
+
     return "Admin Access: Granted"
 # Custom erro handle JWT  erros
 @jwt.unauthorized_loader
