@@ -6,7 +6,7 @@ from flask_jwt_extended import create_access_token, get_jwt_identity, jwt_requir
 app = Flask(__name__)
 auth = HTTPBasicAuth()
 jwt = JWTManager(app)
-app.config["JWT_SECRET_KEY"] = "its_super_secret_from_Holberton"
+app.config["JWT_SECRET_KEY"] = "its_super_secret_Holberton"
 
 users = {
     "user1": {"username": "user1", "password": generate_password_hash("password"), "role": "user"},
@@ -61,17 +61,19 @@ def jwt_protected():
     """Protected Route"""
     return "JWT Auth: Access Granted"
 
-@app.route('/admin-only')
+@app.route('/admin-only', methods=["GET"])
 @jwt_required()
 def admin_only():
     """Only specific user have access"""
+    # curl -X GET http://localhost:5000/admin-only -H "Authorization: Bearer <token>"
     actual_user = get_jwt_identity()
 
     if actual_user not in users or users[actual_user]["role"] != "admin":
-        return jsonify({"error: Admin access required"}), 403
+        return jsonify({"error": "Admin access required"}), 403
 
     return "Admin Access: Granted"
-# Custom erro handle JWT  erros
+
+# Custom error handle JWT  erros
 @jwt.unauthorized_loader
 def handle_unauthorized_error(err):
     return jsonify({"error": "Missing or invalid token"}), 401
@@ -94,5 +96,5 @@ def handle_needs_fresh_token_error(err):
 
 
 if __name__ == '__main__':
-    app.run()
-    #app.run(host='localhost', port=5000, debug=True)
+    #app.run()
+    app.run(host='localhost', port=5000, debug=True)
