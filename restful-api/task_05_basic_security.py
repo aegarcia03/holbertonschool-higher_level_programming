@@ -19,6 +19,8 @@ print(generate_password_hash("password"))
 def verify_password(username, password):
     """Verifies user password"""
     # curl -u user1:password -X GET http://localhost:5000/basic-protected
+    # curl -u admin1:password -X GET http://localhost:5000/basic-protected
+    # curl -u Noadmin:password -X GET http://localhost:5000/basic-protected
     if username in users and \
         check_password_hash(users[username]["password"], password):
         return username
@@ -35,6 +37,7 @@ def login():
     # -- Usage --
     # curl -X POST localhost:5000/login -H "Content-Type: application/json" -d '{"username": "user1", "password": "password"}'
     #curl -X POST localhost:5000/login -H "Content-Type: application/json" -d '{"username": "admin1", "password": "password"}'
+    # curl -X POST localhost:5000/login -H "Content-Type: application/json" -d '{"username": "user10", "password": "password"}'
 
     if request.get_json() is None:
         abort(400, "Not a JSON")
@@ -96,5 +99,5 @@ def handle_needs_fresh_token_error(err):
 
 
 if __name__ == '__main__':
-    #app.run()
-    app.run(host='localhost', port=5000, debug=True)
+    app.run()
+    #app.run(host='localhost', port=5000, debug=True)
