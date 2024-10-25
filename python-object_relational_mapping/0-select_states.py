@@ -1,25 +1,25 @@
 #!/usr/bin/python3
-import MySQLdb
-import sys
+""" Nameless module for running SQL """
+
 
 if __name__ == "__main__":
-    username = sys.argv[1]
-    password = sys.argv[2]
-    database = sys.argv[3]
-    
+    import MySQLdb
+    import sys
+
     db = MySQLdb.connect(
         host="localhost",
         port=3306,
-        user=username,
-        password=password,
-        db=database
-        )
+        user=sys.argv[1],
+        password=sys.argv[2],
+        database=sys.argv[3]
+    )
 
-    cursor = db.cursor()
-    cursor.execute ("SELECT id, name FROM states ORDER by state_id ASC")
-    rows = cursor.fecthall()
+    c = db.cursor()
+    c.execute("""SELECT * FROM states ORDER BY id ASC""")
+    rows = c.fetchall()
+
     for row in rows:
-        print(row)
+        print("({0}, '{1}')".format(row[0], row[1]))
 
-    cursor.close
-    db.close()
+        # print("(%s, " % row[0], end = "")
+        # print("%s)" % row[1])
