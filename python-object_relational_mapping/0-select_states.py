@@ -23,3 +23,6 @@ if __name__ == "__main__":
 
         # print("(%s, " % row[0], end = "")
         # print("%s)" % row[1])
+    
+    c.close()
+    db.close()
