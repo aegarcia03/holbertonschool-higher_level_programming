@@ -13,9 +13,9 @@ if __name__ == "__main__":
         password=sys.argv[2],
         database=sys.argv[3],
     )
-
+    query = """SELECT * FROM states WHERE name = '{0}' ORDER BY id ASC""".format(sys.argv[4])
     c = db.cursor()
-    c.execute("SELECT * FROM states WHERE name = %s ORDER BY id ASC", (sys.argv[4],))
+    c.execute(query)
     rows = c.fetchall()
 
     for row in rows:
