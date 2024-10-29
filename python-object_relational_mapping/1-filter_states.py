@@ -13,10 +13,13 @@ if __name__ == "__main__":
         password=sys.argv[2],
         database=sys.argv[3]
     )
-
+    query = """SELECT * FROM states WHERE name LIKE BINARY "N%" ORDER BY id ASC"""
     c = db.cursor()
-    c.execute("""SELECT * FROM states WHERE name LIKE 'N%' ORDER BY id ASC""")
+    c.execute(query)
     rows = c.fetchall()
 
     for row in rows:
         print(row)
+
+    c.close()
+    db.close()
