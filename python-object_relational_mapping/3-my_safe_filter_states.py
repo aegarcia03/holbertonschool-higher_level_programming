@@ -14,8 +14,8 @@ if __name__ == "__main__":
         database=sys.argv[3],
     )
     query = """SELECT * FROM states WHERE BINARY
-                `name` = '{state_name}'
-                ORDER BY id ASC""".format(state_name=sys.argv[4])
+                `name` = '{0}'
+                ORDER BY id ASC""".format(sys.argv[4])
     c = db.cursor()
     c.execute(query)
     rows = c.fetchall()
