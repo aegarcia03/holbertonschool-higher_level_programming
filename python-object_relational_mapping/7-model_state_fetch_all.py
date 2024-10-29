@@ -1,4 +1,5 @@
 #!/usr/bin/python3
+"""Lists all objects from the database"""
 import sys
 from model_state import Base, State
 from sqlalchemy import create_engine
