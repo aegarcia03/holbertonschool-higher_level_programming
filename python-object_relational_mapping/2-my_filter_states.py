@@ -13,7 +13,7 @@ if __name__ == "__main__":
         password=sys.argv[2],
         database=sys.argv[3],
     )
-    query = """SELECT * FROM states WHERE
+    query = """SELECT * FROM states WHERE BINARY
             name = '{0}' ORDER BY id ASC""".format(sys.argv[4])
     c = db.cursor()
     c.execute(query)
