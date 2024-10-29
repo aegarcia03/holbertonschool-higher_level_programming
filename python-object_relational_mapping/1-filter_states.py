@@ -13,7 +13,8 @@ if __name__ == "__main__":
         password=sys.argv[2],
         database=sys.argv[3]
     )
-    query = """SELECT * FROM states WHERE name LIKE BINARY "N%" ORDER BY id ASC"""
+    query = """SELECT * FROM states WHERE name
+                LIKE BINARY "N%" ORDER BY id ASC"""
     c = db.cursor()
     c.execute(query)
     rows = c.fetchall()
