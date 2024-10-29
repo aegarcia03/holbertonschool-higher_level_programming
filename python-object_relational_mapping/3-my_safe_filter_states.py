@@ -19,7 +19,7 @@ if __name__ == "__main__":
     c.execute(query, ((sys.argv[4]), ))
     rows = c.fetchall()
 
-    for row in rows:
+    for row in rows:pyc
         print(row)
 
     c.close()
