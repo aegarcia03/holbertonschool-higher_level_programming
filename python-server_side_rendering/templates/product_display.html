@@ -4,9 +4,11 @@
     <title>Product data</title>
 </head>
 <body>
+    {% include 'header.html' %}
+
     {% if error %}
-    <p>class ="error">{{ error }}</p>
-    {% endif %}
+        <p>class ="error">{{ error }}</p>
+    {% else %}
         <table>
             <tr>
                 <th>Name</th>
@@ -21,9 +23,7 @@
                 </tr>
             {% endfor %}
         </table>
-            {% else %}
-                <p>Wrong source</p>
-            {% endif %}
+    {% endif %}
     
     {% include 'footer.html' %}
 </body>

@@ -17,7 +17,7 @@ def contact():
 
 @app.route('/items')
 def items():
-    with open('items.json') as json_file:
+    with open('items.json', 'r') as json_file:
         data = json.load(json_file)
         items_list = data.get("items", [])
 
@@ -26,7 +26,7 @@ def items():
 def read_json():
     with open('products.json', 'r') as file:
         data = json.load(file)
-        return file
+        return data
 
 def read_csv():
     with open('products.csv', newline='') as file:
@@ -45,10 +45,9 @@ def products():
     if source not in ['json', 'csv', 'sql']:
         return render_template('product_display.html', error='Wrong source')
     if source == 'json':
-        products = read_json()  
+        products = read_json()
     elif source == 'csv':
         products = read_csv()
-    
     if p_id:
         try:
             p_id = int(p_id)
@@ -57,10 +56,9 @@ def products():
             if not filtered_p:
                 return render_template('product_display.html', error="Product not found")
         except ValueError:
-            return render_template('product_display.hmtl', error="Invalid product id")
+            return render_template('product_display.html', error="Invalid product id")
     else:
         filtered_p = products
-    
 
     return render_template('product_display.html', products=filtered_p)
 
